@@ -1,4 +1,4 @@
-# Lumina Books - Frontend Prototype
+# The Gilded Page - Frontend Prototype
 
 A modern, mobile-friendly online bookstore MVP built with React, Tailwind CSS, and Framer Motion.
 

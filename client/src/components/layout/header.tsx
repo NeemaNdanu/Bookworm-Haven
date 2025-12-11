@@ -23,7 +23,7 @@ export function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="font-serif text-2xl font-bold tracking-tight flex items-center gap-2">
-          <span className="text-primary text-3xl">✦</span> Lumina Books
+          <span className="text-primary text-3xl">✦</span> The Gilded Page
         </Link>
 
         {/* Desktop Nav */}

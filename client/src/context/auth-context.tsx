@@ -43,7 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     toast({
       title: "Account created!",
-      description: "Welcome to Lumina Books.",
+      description: "Welcome to The Gilded Page.",
     });
   };
 

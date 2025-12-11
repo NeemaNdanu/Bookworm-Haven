@@ -36,7 +36,7 @@ export default function About() {
               Our Story
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Lumina Books began with a simple idea: that the right book at the right time can change a life. Founded in 2024, we set out to curate a collection that moves beyond the bestseller lists to find the hidden gems, the quiet masterpieces, and the bold new voices that challenge our perspectives.
+              The Gilded Page began with a simple idea: that the right book at the right time can change a life. Founded in 2024, we set out to curate a collection that moves beyond the bestseller lists to find the hidden gems, the quiet masterpieces, and the bold new voices that challenge our perspectives.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We believe in the tactile experience of reading—the smell of paper, the weight of a hardcover, and the quiet moments of reflection that only a physical book can provide.

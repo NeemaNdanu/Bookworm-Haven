@@ -55,7 +55,7 @@ export default function AuthPage() {
     <div className="min-h-[80vh] flex items-center justify-center p-4 bg-muted/30">
       <Card className="w-full max-w-md shadow-xl border-none">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl font-serif font-bold">Lumina Books</CardTitle>
+          <CardTitle className="text-2xl font-serif font-bold">The Gilded Page</CardTitle>
           <CardDescription>
             Enter your email to access your library
           </CardDescription>
