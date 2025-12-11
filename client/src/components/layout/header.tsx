@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useState } from "react";
 
 export function Header() {
@@ -22,18 +22,14 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
-          <a className="font-serif text-2xl font-bold tracking-tight flex items-center gap-2">
-            <span className="text-primary text-3xl">✦</span> Lumina Books
-          </a>
+        <Link href="/" className="font-serif text-2xl font-bold tracking-tight flex items-center gap-2">
+          <span className="text-primary text-3xl">✦</span> Lumina Books
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <Link href="/">
-            <a className={`transition-colors hover:text-primary ${location === '/' ? 'text-primary' : 'text-muted-foreground'}`}>
-              Browse
-            </a>
+          <Link href="/" className={`transition-colors hover:text-primary ${location === '/' ? 'text-primary' : 'text-muted-foreground'}`}>
+            Browse
           </Link>
           <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
             Bestsellers
@@ -80,12 +76,12 @@ export function Header() {
             </DropdownMenu>
           ) : (
             <div className="hidden md:flex gap-2">
-              <Link href="/auth">
-                <Button variant="ghost" size="sm">Log in</Button>
-              </Link>
-              <Link href="/auth">
-                <Button size="sm">Sign up</Button>
-              </Link>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/auth">Log in</Link>
+              </Button>
+              <Button size="sm" asChild>
+                <Link href="/auth">Sign up</Link>
+              </Button>
             </div>
           )}
 
@@ -98,16 +94,22 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
+                <SheetHeader>
+                  <SheetTitle className="text-left font-serif">Menu</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigation menu for mobile devices
+                  </SheetDescription>
+                </SheetHeader>
                 <nav className="flex flex-col gap-4 mt-8">
-                  <Link href="/">
-                    <a className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>Browse</a>
+                  <Link href="/" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                    Browse
                   </Link>
                   <a href="#" className="text-lg font-medium text-muted-foreground">Bestsellers</a>
                   <a href="#" className="text-lg font-medium text-muted-foreground">About</a>
                   {!isAuthenticated && (
-                     <Link href="/auth">
-                       <Button className="w-full mt-4" onClick={() => setMobileMenuOpen(false)}>Sign In / Register</Button>
-                     </Link>
+                     <Button className="w-full mt-4" onClick={() => setMobileMenuOpen(false)} asChild>
+                       <Link href="/auth">Sign In / Register</Link>
+                     </Button>
                   )}
                 </nav>
               </SheetContent>

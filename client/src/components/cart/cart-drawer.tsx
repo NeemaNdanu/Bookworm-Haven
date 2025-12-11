@@ -1,4 +1,4 @@
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter, SheetDescription } from "@/components/ui/sheet";
 import { useCart } from "@/context/cart-context";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -13,6 +13,9 @@ export function CartDrawer() {
       <SheetContent className="w-full sm:max-w-md flex flex-col">
         <SheetHeader className="space-y-2.5 pr-6">
           <SheetTitle className="font-serif text-2xl">Your Cart</SheetTitle>
+          <SheetDescription className="sr-only">
+            Review and manage the items in your shopping cart.
+          </SheetDescription>
           <Separator />
         </SheetHeader>
         
