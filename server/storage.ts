@@ -74,9 +74,6 @@ export class DatabaseStorage implements IStorage {
     const limit = params?.limit || 20;
     const offset = (page - 1) * limit;
 
-    let query = db.select().from(books);
-    let countQuery = db.select({ count: sql<number>`count(*)` }).from(books);
-
     const conditions = [];
     
     if (params?.q) {
@@ -92,16 +89,17 @@ export class DatabaseStorage implements IStorage {
       conditions.push(eq(books.genre, params.genre));
     }
 
-    if (conditions.length > 0) {
-      const whereClause = conditions.length === 1 ? conditions[0] : and(...conditions);
-      query = query.where(whereClause!);
-      countQuery = countQuery.where(whereClause!);
-    }
+    const whereClause = conditions.length > 0 
+      ? (conditions.length === 1 ? conditions[0] : and(...conditions))
+      : undefined;
 
-    const [bookList, countResult] = await Promise.all([
-      query.limit(limit).offset(offset),
-      countQuery,
-    ]);
+    const bookList = whereClause
+      ? await db.select().from(books).where(whereClause).limit(limit).offset(offset)
+      : await db.select().from(books).limit(limit).offset(offset);
+
+    const countResult = whereClause
+      ? await db.select({ count: sql<number>`count(*)` }).from(books).where(whereClause)
+      : await db.select({ count: sql<number>`count(*)` }).from(books);
 
     return {
       books: bookList,
