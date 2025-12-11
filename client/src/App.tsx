@@ -10,6 +10,8 @@ import { CartDrawer } from "@/components/cart/cart-drawer";
 import Home from "@/pages/home";
 import BookDetail from "@/pages/book-detail";
 import AuthPage from "@/pages/auth";
+import Bestsellers from "@/pages/bestsellers";
+import About from "@/pages/about";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/book/:id" component={BookDetail} />
       <Route path="/auth" component={AuthPage} />
+      <Route path="/bestsellers" component={Bestsellers} />
+      <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
   );

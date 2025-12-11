@@ -31,12 +31,12 @@ export function Header() {
           <Link href="/" className={`transition-colors hover:text-primary ${location === '/' ? 'text-primary' : 'text-muted-foreground'}`}>
             Browse
           </Link>
-          <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+          <Link href="/bestsellers" className={`transition-colors hover:text-primary ${location === '/bestsellers' ? 'text-primary' : 'text-muted-foreground'}`}>
             Bestsellers
-          </a>
-          <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+          </Link>
+          <Link href="/about" className={`transition-colors hover:text-primary ${location === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>
             About
-          </a>
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -104,8 +104,12 @@ export function Header() {
                   <Link href="/" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
                     Browse
                   </Link>
-                  <a href="#" className="text-lg font-medium text-muted-foreground">Bestsellers</a>
-                  <a href="#" className="text-lg font-medium text-muted-foreground">About</a>
+                  <Link href="/bestsellers" className="text-lg font-medium text-muted-foreground" onClick={() => setMobileMenuOpen(false)}>
+                    Bestsellers
+                  </Link>
+                  <Link href="/about" className="text-lg font-medium text-muted-foreground" onClick={() => setMobileMenuOpen(false)}>
+                    About
+                  </Link>
                   {!isAuthenticated && (
                      <Button className="w-full mt-4" onClick={() => setMobileMenuOpen(false)} asChild>
                        <Link href="/auth">Sign In / Register</Link>
