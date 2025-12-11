@@ -36,76 +36,76 @@
 }
 
 :root {
-  /* Brown and Gold Theme */
+  /* Red and Gold Theme - Royal & Classic */
   
-  /* Warm Parchment Background */
-  --background: 35 30% 96%; 
-  /* Deep Espresso Foreground */
-  --foreground: 25 40% 15%;
+  /* Warm Cream Background */
+  --background: 40 30% 97%; 
+  /* Deep Burgundy Foreground */
+  --foreground: 350 40% 15%;
 
-  /* Cards - Slightly lighter than background */
-  --card: 35 30% 98%;
-  --card-foreground: 25 40% 15%;
+  /* Cards - Clean White/Cream */
+  --card: 0 0% 100%;
+  --card-foreground: 350 40% 15%;
 
   /* Popovers */
-  --popover: 35 30% 98%;
-  --popover-foreground: 25 40% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 350 40% 15%;
 
-  /* Primary - Rich Antique Gold */
-  --primary: 45 80% 45%;
-  --primary-foreground: 25 40% 15%; /* Dark text on gold looks better */
+  /* Primary - Rich Crimson Red */
+  --primary: 350 75% 40%;
+  --primary-foreground: 40 30% 97%;
 
-  /* Secondary - Soft Leather Brown */
-  --secondary: 30 20% 85%;
-  --secondary-foreground: 25 40% 15%;
+  /* Secondary - Antique Gold (muted for UI elements) */
+  --secondary: 45 60% 90%;
+  --secondary-foreground: 350 60% 30%;
 
-  /* Muted - Faded Ink/Paper */
-  --muted: 35 20% 90%;
-  --muted-foreground: 25 10% 50%;
+  /* Muted - Warm Grey/Red tint */
+  --muted: 350 10% 92%;
+  --muted-foreground: 350 10% 50%;
 
-  /* Accent - Golden Highlight */
-  --accent: 45 60% 90%;
-  --accent-foreground: 25 40% 15%;
+  /* Accent - Gold Highlight for hovers */
+  --accent: 45 70% 85%;
+  --accent-foreground: 350 75% 40%;
 
   /* Destructive */
-  --destructive: 0 70% 40%; /* Deep Red */
-  --destructive-foreground: 35 30% 96%;
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 0 0% 98%;
 
-  /* Borders & Inputs */
-  --border: 30 20% 80%;
-  --input: 30 20% 80%;
-  --ring: 45 80% 45%;
+  /* Borders & Inputs - Gold tinged */
+  --border: 45 30% 80%;
+  --input: 45 30% 80%;
+  --ring: 350 75% 40%;
 }
 
 .dark {
-  /* Dark Mode - Dark Chocolate & Gold */
-  --background: 25 30% 10%;
-  --foreground: 35 30% 90%;
+  /* Dark Mode - Velvet Red & Gold */
+  --background: 350 40% 10%;
+  --foreground: 40 30% 95%;
 
-  --card: 25 25% 14%;
-  --card-foreground: 35 30% 90%;
+  --card: 350 35% 14%;
+  --card-foreground: 40 30% 95%;
 
-  --popover: 25 25% 14%;
-  --popover-foreground: 35 30% 90%;
+  --popover: 350 35% 14%;
+  --popover-foreground: 40 30% 95%;
 
-  --primary: 45 70% 50%;
-  --primary-foreground: 25 40% 10%;
+  --primary: 350 70% 50%; /* Brighter Red for dark mode */
+  --primary-foreground: 40 30% 95%;
 
-  --secondary: 25 20% 20%;
-  --secondary-foreground: 35 30% 90%;
+  --secondary: 350 25% 20%;
+  --secondary-foreground: 40 30% 95%;
 
-  --muted: 25 20% 20%;
-  --muted-foreground: 35 10% 60%;
+  --muted: 350 25% 20%;
+  --muted-foreground: 350 10% 65%;
 
-  --accent: 25 20% 20%;
-  --accent-foreground: 35 30% 90%;
+  --accent: 350 25% 20%;
+  --accent-foreground: 40 30% 95%;
 
   --destructive: 0 62% 30%;
-  --destructive-foreground: 35 30% 90%;
+  --destructive-foreground: 40 30% 95%;
 
-  --border: 25 20% 20%;
-  --input: 25 20% 20%;
-  --ring: 45 70% 50%;
+  --border: 350 25% 25%;
+  --input: 350 25% 25%;
+  --ring: 350 70% 50%;
 }
 
 @layer base {
@@ -113,7 +113,7 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-foreground;
+    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
