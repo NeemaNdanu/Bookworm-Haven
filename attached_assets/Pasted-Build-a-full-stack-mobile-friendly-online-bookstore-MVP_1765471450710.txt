@@ -1,0 +1,56 @@
+Build a full‑stack, mobile‑friendly online bookstore MVP.
+
+Tech stack
+- Frontend: React (Vite or Create React App), Tailwind CSS for styling, React Router for navigation
+- Backend: Node.js + Express
+- Database: MongoDB (Atlas or local)
+- Auth: bcrypt + JWT (HTTP‑only cookie recommended)
+- Persistence: Cart stored in MongoDB per user; fallback to localStorage for guests and merge on login
+
+MVP Features (list)
+1. Homepage displaying book cards
+    - GET /api/books with optional query params: ?page=&limit=&q=&genre=
+    - Book card fields: coverImage, title, author, price, rating, shortDescription, id
+    - Responsive grid: 1 col mobile / 2–3 tablet / 4+ desktop; lazy load images
+    - Seed script to populate sample books
+
+2. Persistent shopping cart component
+    - UI: cart icon in header with item count; side drawer or modal showing items, qty, subtotal, checkout button
+    - Persistence behavior:
+      - Authenticated users: cart saved server‑side to /api/cart (GET, POST, PUT, DELETE endpoints)
+      - Guests: cart saved to localStorage; on login, merge local cart with server cart
+    - API endpoints: GET /api/cart, POST /api/cart (add), PATCH /api/cart/:itemId (update qty), DELETE /api/cart/:itemId, POST /api/cart/merge
+    - Cart model: userId (nullable), items [{bookId, title, price, qty, coverImage}], total
+    - Frontend: optimistic UI updates, sync with server on background
+
+3. Basic user registration and login UI
+    - Pages: /register, /login, /profile (optional)
+    - Forms: name, email, password (validation + error display)
+    - Backend endpoints: POST /api/auth/register, POST /api/auth/login, GET /api/auth/me, POST /api/auth/logout
+    - Security: hash passwords (bcrypt), return JWT set in HTTP‑only cookie; auth middleware to protect /api/cart
+    - After login: fetch /api/cart and merge local cart if present
+
+Implementation notes
+- File structure suggestion:
+  - /client: src/components (Header, BookCard, BookGrid, CartDrawer, AuthForms), src/pages (Home, BookDetail, Login, Register), src/services/api.js
+  - /server: routes (books.js, auth.js, cart.js), controllers, models (User, Book, Cart), middleware (auth), seed.js
+- Database models: Book {title, author, description, price, stock, coverImage, genre, rating}, User {name,email,passwordHash}, Cart {userId, items, total}
+- Styling: Tailwind utility classes; mobile‑first breakpoints; accessible components (ARIA)
+- Testing: unit tests for cart total logic (Jest), basic integration test for auth flow
+- Dev & deploy:
+  - npm scripts: client start/build, server start/dev
+  - Replit: run both processes (concurrently or single Express serving built frontend); include .replit run command and Procfile if needed
+  - Provide README with env vars: MONGODB_URI, JWT_SECRET, PORT
+
+Deliverables for the Agent
+- Create full file scaffolding, seed data, and working endpoints
+- Implement frontend pages and components with Tailwind
+- Implement auth and persistent cart behavior (including merge logic)
+- Add basic input validation, error handling, and unit tests for cart logic
+- Create a README with run/deploy instructions and sample env values
+
+Behavior expectations
+- Keep features minimal and focused on the three MVP items
+- Provide concise comments for important files and a short dev checklist
+- Don’t add payment integration or advanced search — reserve for future iterations
+- Ensure app is responsive and functional in Replit Preview; include a deployable build step
