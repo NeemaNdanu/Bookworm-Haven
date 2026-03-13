@@ -48,9 +48,4 @@ This is a **Frontend-Only Prototype**.
 -   `client/src/context`: React Context for global state (Cart, Auth)
 -   `client/src/lib/data.ts`: Mock book data and types
 
-## Future Steps (Full Stack Upgrade)
 
-To upgrade this to a full-stack application:
-1.  Connect the `server/` Express app to a MongoDB database.
-2.  Implement the API endpoints defined in the requirements.
-3.  Replace `CartContext` and `AuthContext` with actual API calls (using React Query).
